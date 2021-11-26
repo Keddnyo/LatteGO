@@ -1,18 +1,15 @@
 package com.keddnyo.lattego
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.support.v7.app.AlertDialog
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
 import android.widget.AdapterView.OnItemClickListener
 import java.io.*
-import android.content.res.AssetManager
 import java.lang.Exception
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
         val listView = findViewById<ListView>(R.id.list_boot_options)
-
         val bootList = listOf (
             "Shutdown",
             "Recovery",
@@ -40,42 +35,39 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = adapter
 
         listView.onItemClickListener =
-            OnItemClickListener { _, _, position, id ->
-                Toast.makeText(baseContext, adapter.getItem(position).toString(), Toast.LENGTH_SHORT).show()
-
+            OnItemClickListener { _, _, position, _ ->
                 val context: Context = applicationContext
                 when (adapter.getItem(position)) {
                     bootList[0] -> {
-                        Runtime.getRuntime().exec(arrayOf("reboot", "-p")) // Shutdown
-                        Toast.makeText(baseContext, "I'm happy", Toast.LENGTH_SHORT).show()
+                        BootExec().shutdown() // Shutdown
                     }
                     bootList[1] -> {
-                        Runtime.getRuntime().exec(arrayOf("reboot", "recovery")) // Recovery
+                        BootExec().recovery() // Recovery
                     }
                     bootList[2] -> {
-                        Runtime.getRuntime().exec(arrayOf("reboot", "bootloader")) // Fastboot
+                        BootExec().bootloader() // Bootloader
                     }
                     bootList[3] -> {
-                        Runtime.getRuntime().exec(arrayOf("reboot", "dnx")) // DNX
+                        BootExec().dnx() // DNX
                     }
                     bootList[4] -> {
-                        Runtime.getRuntime().exec("reboot") // Reboot
+                        BootExec().reboot() // Reboot
                     }
                     bootList[5] -> {
-                        Runtime.getRuntime().exec(arrayOf("input", "keyevent", "KEYCODE_POWER")) // Screen off
+                        BootExec().sleep() // Sleep
                     }
                     bootList[6] -> {
-                        Runtime.getRuntime().exec(arrayOf("setprop", "persist.sys.safemode", "1")) // Safemode preparation
-                        Runtime.getRuntime().exec("reboot") // Reboot safemode
+                        BootExec().safemode() // Safe mode
                     }
                     bootList[7] -> {
-                        copyFile(context, "windows.efi")
+                        BootExec().mountEFI()
 
                         val builder = AlertDialog.Builder(this)
-                        builder.setTitle("Title")
-                        builder.setMessage("Msg")
+                        builder.setTitle("Confirm")
+                        builder.setMessage("Do you want to reboot into Windows?")
                         builder.setPositiveButton("Yes") { _, _ ->
-                            Runtime.getRuntime().exec("reboot") // Reboot
+                            copyFile(context, "windows.efi")
+                            BootExec().reboot()
                         }
                         builder.setNegativeButton("No") { _, _ ->
                             copyFile(context, "android.efi")
@@ -85,21 +77,18 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
-
-
-
-
-
+    @SuppressLint("SdCardPath")
     private fun copyFile(context: Context, fileName: String) {
         val assetManager = context.assets
         try {
             val `in`: InputStream = assetManager.open(fileName)
-            val out: OutputStream = FileOutputStream("/sdcard/"+"bootx64.efi")
+            val out: OutputStream = FileOutputStream("/sdcard/"+".bootx64.efi")
             val buffer = ByteArray(1024)
             var read: Int
             while (`in`.read(buffer).also { read = it } != -1) {
                 out.write(buffer, 0, read)
             }
+            BootExec().copyEFI()
         } catch (e: Exception) {
             // None
         }
