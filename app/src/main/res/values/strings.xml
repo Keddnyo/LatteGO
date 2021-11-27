@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">LatteGO</string>
+    <string name="app_name" translatable="false">LatteGO</string>
+    <string name="confirm">Confirm</string>
+    <string name="choose">The %1$s item has been selected.</string>
+    <string name="recovery" translatable="false">Recovery</string>
+    <string name="windows" translatable="false">Windows</string>
+
+    <string-array name="boot_options">
+        <item>Shutdown</item>
+        <item>@string/recovery</item>
+        <item>Fastboot</item>
+        <item>DNX</item>
+        <item>Reboot</item>
+        <item>Sleep</item>
+        <item>Safe mode</item>
+        <item>@string/windows</item>
+    </string-array>
 </resources>

@@ -2,19 +2,45 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.keddnyo.lattego">
 
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.LatteGO">
+        android:theme="@style/Theme.LatteGO"
+        android:allowBackup="false">
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".shortcuts.Recovery"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_recovery"
+            android:label="@string/recovery"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".shortcuts.Windows"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_windows"
+            android:label="@string/windows"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

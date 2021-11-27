@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="confirm">Подтвердить</string>
+    <string name="choose">Был выбран пункт %1$s</string>
+
+    <string-array name="boot_options">
+        <item>Выключение</item>
+        <item>@string/recovery</item>
+        <item>Fastboot</item>
+        <item>DNX</item>
+        <item>Перезагрузка</item>
+        <item>Сон</item>
+        <item>Безопасный режим</item>
+        <item>@string/windows</item>
+    </string-array>
+</resources>
