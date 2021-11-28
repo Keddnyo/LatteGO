@@ -6,7 +6,7 @@ import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
 
-class BootExec {
+class Boot {
     private val file = "bootx64.efi"
     private val efiPath = "/mnt/cifs/efi"
 
@@ -48,6 +48,7 @@ class BootExec {
     }
 
     @SuppressLint("SdCardPath")
+    // Copying file for further moving to EFI partition
     fun copyFile(context: Context, fileName: String) {
         val assetManager = context.assets
         try {
@@ -58,7 +59,7 @@ class BootExec {
             while (`in`.read(buffer).also { read = it } != -1) {
                 out.write(buffer, 0, read)
             }
-            BootExec().copyEFI()
+            Boot().copyEFI()
         } catch (e: Exception) {
             // None
         }

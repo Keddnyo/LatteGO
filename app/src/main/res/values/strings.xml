@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name" translatable="false">LatteGO</string>
-    <string name="confirm">Confirm</string>
-    <string name="choose">The %1$s item has been selected.</string>
+    <string name="choice">Confirm your choice: %1$s</string>
     <string name="recovery" translatable="false">Recovery</string>
     <string name="windows" translatable="false">Windows</string>
+    <string name="attempt_to_fix_efi">Attempt to fix EFI</string>
+    <string name="shortcut_enabled">%1$s shortcut enabled</string>
+    <string name="shortcut_disabled">%1$s shortcut disabled</string>
 
     <string-array name="boot_options">
         <item>Shutdown</item>
@@ -13,6 +15,5 @@
         <item>Reboot</item>
         <item>Sleep</item>
         <item>Safe mode</item>
-        <item>@string/windows</item>
     </string-array>
 </resources>
