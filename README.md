@@ -15,11 +15,11 @@
   * Windows *(Only via shortcut)*
 * Reboot confirmation dialog
 ## Hidden features
+  * Long click on "**DNX**" make an attempt to fix EFI partition
   * Long click on "**Recovery**" turns on Recovery shortcut
-  * Long click on "**Shutdown**" turns off Recovery shortcut
   * Long click on "**Reboot**" turns on Windows shortcut
   * Long click on "**Safe mode**" turns on Windows shortcut
-  * Long click on "**DNX**" make an attempt to fix EFI partition
+  * Long click on "**Power off**" turns off Recovery shortcut
 
 [![Github All Releases](https://img.shields.io/github/v/release/Keddnyo/LatteGO?display_name=tag&style=for-the-badge&logo=appveyor)]()
 [![Github All Releases](https://img.shields.io/github/release-date/Keddnyo/LatteGO?style=for-the-badge&logo=appveyor)]()
