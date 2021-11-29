@@ -20,9 +20,3 @@
   * Long click on "**Reboot**" enables Windows shortcut
   * Long click on "**Safe mode**" disables Windows shortcut
   * Long click on "**Power off**" disables Recovery shortcut
-
-[![Github All Releases](https://img.shields.io/github/v/release/Keddnyo/LatteGO?display_name=tag&style=for-the-badge&logo=appveyor)]()
-[![Github All Releases](https://img.shields.io/github/release-date/Keddnyo/LatteGO?style=for-the-badge&logo=appveyor)]()
-[![Github All Releases](https://img.shields.io/github/downloads/Keddnyo/LatteGO/total.svg?style=for-the-badge&logo=appveyor)]()
-[![Github All Releases](https://img.shields.io/github/stars/Keddnyo/LatteGO?style=for-the-badge&logo=appveyor)]()
-[![Github All Releases](https://img.shields.io/github/forks/Keddnyo/LatteGO?style=for-the-badge&logo=appveyor)]()
