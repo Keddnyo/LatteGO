@@ -4,6 +4,7 @@
     <string name="attempt_to_fix_efi">Попытка починить EFI</string>
     <string name="shortcut_enabled">Ярлык %1$s включен</string>
     <string name="shortcut_disabled">Ярлык %1$s отключен</string>
+    <string name="only_for">Только для %1$s</string>
     <string-array name="boot_options">
         <item>DNX</item>
         <item>Fastboot</item>

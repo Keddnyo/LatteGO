@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import com.keddnyo.lattego.commands.Boot
+import com.keddnyo.lattego.other.Device
 import com.keddnyo.lattego.shortcuts.Recovery
 import com.keddnyo.lattego.shortcuts.Windows
 
@@ -18,7 +19,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Boot().mountEFI()
+
+        val device = getString(R.string.only_for, Device().model)
+        if (!Device().check()) {
+            Toast.makeText(this, device, Toast.LENGTH_SHORT).show()
+            finish()
+        }
+        else {
+            Boot().mountEFI()
+        }
     }
 
     override fun onResume() {

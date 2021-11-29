@@ -6,6 +6,7 @@
     <string name="attempt_to_fix_efi">Attempt to fix EFI</string>
     <string name="shortcut_enabled">%1$s shortcut enabled</string>
     <string name="shortcut_disabled">%1$s shortcut disabled</string>
+    <string name="only_for">Only for %1$s</string>
     <string-array name="boot_options">
         <item>DNX</item>
         <item>Fastboot</item>
