@@ -11,11 +11,11 @@ class Windows : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setMessage(resources.getString(R.string.choice, getString(R.string.windows)))
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
+            Boot().mountEFI()
             Boot().windows(applicationContext)
             finish()
         }
         builder.setNegativeButton(android.R.string.cancel) { _, _ ->
-            Boot().copyFile(applicationContext, "android.efi")
             finish()
         }
         builder.show()
