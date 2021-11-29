@@ -3,6 +3,7 @@
 # LatteGO
  MI Pad 2 tablet advanced boot options
 ## Features
+* Hidden target device checker
 * Simple GUI
 * Reboot options
   * Shutdown
