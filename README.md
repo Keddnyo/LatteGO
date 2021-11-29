@@ -18,7 +18,7 @@
   * Long click on "**DNX**" make an attempt to fix EFI partition
   * Long click on "**Recovery**" turns on Recovery shortcut
   * Long click on "**Reboot**" turns on Windows shortcut
-  * Long click on "**Safe mode**" turns on Windows shortcut
+  * Long click on "**Safe mode**" turns off Windows shortcut
   * Long click on "**Power off**" turns off Recovery shortcut
 
 [![Github All Releases](https://img.shields.io/github/v/release/Keddnyo/LatteGO?display_name=tag&style=for-the-badge&logo=appveyor)]()
