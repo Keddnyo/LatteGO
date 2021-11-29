@@ -6,14 +6,13 @@
     <string name="attempt_to_fix_efi">Attempt to fix EFI</string>
     <string name="shortcut_enabled">%1$s shortcut enabled</string>
     <string name="shortcut_disabled">%1$s shortcut disabled</string>
-
     <string-array name="boot_options">
-        <item>Shutdown</item>
-        <item>@string/recovery</item>
-        <item>Fastboot</item>
         <item>DNX</item>
+        <item>Fastboot</item>
+        <item>@string/recovery</item>
         <item>Reboot</item>
-        <item>Sleep</item>
         <item>Safe mode</item>
+        <item>Sleep</item>
+        <item>Power off</item>
     </string-array>
 </resources>

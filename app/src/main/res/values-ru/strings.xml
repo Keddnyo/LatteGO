@@ -4,14 +4,13 @@
     <string name="attempt_to_fix_efi">Попытка починить EFI</string>
     <string name="shortcut_enabled">Ярлык %1$s включен</string>
     <string name="shortcut_disabled">Ярлык %1$s отключен</string>
-
     <string-array name="boot_options">
-        <item>Выключение</item>
-        <item>@string/recovery</item>
-        <item>Fastboot</item>
         <item>DNX</item>
+        <item>Fastboot</item>
+        <item>@string/recovery</item>
         <item>Перезагрузка</item>
-        <item>Сон</item>
         <item>Безопасный режим</item>
+        <item>Сон</item>
+        <item>Выключение</item>
     </string-array>
 </resources>
