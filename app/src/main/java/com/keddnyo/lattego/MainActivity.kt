@@ -33,25 +33,25 @@ class MainActivity : AppCompatActivity() {
             OnItemClickListener { _, _, position, _ ->
                 when (adapter.getItem(position)) {
                     bootList[0] -> {
-                        dialog(bootList[0].toString(), 0) // Shutdown
+                        dialog(bootList[0].toString(), 0) // DNX
                     }
                     bootList[1] -> {
-                        dialog(bootList[1].toString(), 1) // Recovery
+                        dialog(bootList[1].toString(), 1) // Fastboot
                     }
                     bootList[2] -> {
-                        dialog(bootList[2].toString(), 2) // Bootloader
+                        dialog(bootList[2].toString(), 2) // Recovery
                     }
                     bootList[3] -> {
-                        dialog(bootList[3].toString(), 3) // DNX
+                        dialog(bootList[3].toString(), 3) // Reboot
                     }
                     bootList[4] -> {
-                        dialog(bootList[4].toString(), 4) // Reboot
+                        dialog(bootList[4].toString(), 4)// Safe mode
                     }
                     bootList[5] -> {
                         dialog(bootList[5].toString(), 5) // Sleep
                     }
                     bootList[6] -> {
-                        dialog(bootList[6].toString(), 6) // Safe mode
+                        dialog(bootList[6].toString(), 6) // Power off
                     }
                 }
             }
@@ -62,14 +62,10 @@ class MainActivity : AppCompatActivity() {
                 val context = applicationContext
                 when (adapter.getItem(position)) {
                     bootList[0] -> {
-                        p.setComponentEnabledSetting(
-                            ComponentName(context, Recovery::class.java),
-                            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                            PackageManager.DONT_KILL_APP
-                        )
-                        toast((getString(R.string.shortcut_disabled, getString(R.string.recovery))))
+                        Boot().copyFile(context, "android.efi")
+                        toast(getString(R.string.attempt_to_fix_efi))
                     }
-                    bootList[1] -> {
+                    bootList[2] -> {
                         p.setComponentEnabledSetting(
                             ComponentName(context, Recovery::class.java),
                             PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
@@ -78,10 +74,6 @@ class MainActivity : AppCompatActivity() {
                         toast((getString(R.string.shortcut_enabled, getString(R.string.recovery))))
                     }
                     bootList[3] -> {
-                        Boot().copyFile(context, "android.efi")
-                        toast(getString(R.string.attempt_to_fix_efi))
-                    }
-                    bootList[4] -> {
                         p.setComponentEnabledSetting(
                             ComponentName(context, Windows::class.java),
                             PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
@@ -89,13 +81,21 @@ class MainActivity : AppCompatActivity() {
                         )
                         toast((getString(R.string.shortcut_enabled, getString(R.string.windows))))
                     }
-                    bootList[6] -> {
+                    bootList[4] -> {
                         p.setComponentEnabledSetting(
                             ComponentName(context, Windows::class.java),
                             PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                             PackageManager.DONT_KILL_APP
                         )
                         toast((getString(R.string.shortcut_disabled, getString(R.string.windows))))
+                    }
+                    bootList[6] -> {
+                        p.setComponentEnabledSetting(
+                            ComponentName(context, Recovery::class.java),
+                            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                            PackageManager.DONT_KILL_APP
+                        )
+                        toast((getString(R.string.shortcut_disabled, getString(R.string.recovery))))
                     }
                 }
                 true
@@ -108,25 +108,25 @@ class MainActivity : AppCompatActivity() {
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             when (confirm) {
                 0 -> {
-                    Boot().shutdown() // Shutdown
+                    Boot().shutdown() // DNX
                 }
                 1 -> {
-                    Boot().recovery() // Recovery
+                    Boot().recovery() // Fastboot
                 }
                 2 -> {
-                    Boot().bootloader() // Bootloader
+                    Boot().bootloader() // Recovery
                 }
                 3 -> {
-                    Boot().dnx() // DNX
+                    Boot().dnx() // Reboot
                 }
                 4 -> {
-                    Boot().reboot() // Reboot
+                    Boot().reboot() // Safe mode
                 }
                 5 -> {
                     Boot().sleep() // Sleep
                 }
                 6 -> {
-                    Boot().safemode() // Safe mode
+                    Boot().safemode() // Power off
                 }
             }
         }
