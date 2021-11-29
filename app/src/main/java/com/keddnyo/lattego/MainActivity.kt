@@ -117,25 +117,25 @@ class MainActivity : AppCompatActivity() {
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             when (confirm) {
                 0 -> {
-                    Boot().shutdown() // DNX
+                    Boot().dnx() // DNX
                 }
                 1 -> {
-                    Boot().recovery() // Fastboot
+                    Boot().bootloader() // Fastboot
                 }
                 2 -> {
-                    Boot().bootloader() // Recovery
+                    Boot().recovery() // Recovery
                 }
                 3 -> {
-                    Boot().dnx() // Reboot
+                    Boot().reboot() // Reboot
                 }
                 4 -> {
-                    Boot().reboot() // Safe mode
+                    Boot().safemode() // Safe mode
                 }
                 5 -> {
                     Boot().sleep() // Sleep
                 }
                 6 -> {
-                    Boot().safemode() // Power off
+                    Boot().shutdown() // Power off
                 }
             }
         }
