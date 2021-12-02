@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="choice">Подтвердите выбор %1$s</string>
-    <string name="attempt_to_fix_efi">Попытка починить EFI</string>
+    <string name="choice">Подтвердите выбор: %1$s</string>
+    <string name="attempt_to_fix_efi">Восстановление EFI</string>
     <string name="shortcut_enabled">Ярлык %1$s включен</string>
     <string name="shortcut_disabled">Ярлык %1$s отключен</string>
     <string name="only_for">Только для %1$s</string>
