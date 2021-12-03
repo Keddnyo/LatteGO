@@ -13,12 +13,14 @@ class Windows : AppCompatActivity() {
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             Boot().mountEFI()
             Boot().windows(applicationContext)
+            builder.show().dismiss()
             finish()
         }
         builder.setNegativeButton(android.R.string.cancel) { _, _ ->
+            builder.show().dismiss()
             finish()
         }
-        builder.show()
+        builder.show().setCanceledOnTouchOutside(false)
         super.onCreate(savedInstanceState)
     }
 }

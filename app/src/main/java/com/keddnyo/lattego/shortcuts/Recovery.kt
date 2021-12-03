@@ -12,12 +12,14 @@ class Recovery : AppCompatActivity() {
         builder.setMessage(resources.getString(R.string.choice, getString(R.string.recovery)))
         builder.setPositiveButton(android.R.string.ok) { _, _ ->
             Boot().windows(applicationContext)
+            builder.show().dismiss()
             finish()
         }
         builder.setNegativeButton(android.R.string.cancel) { _, _ ->
+            builder.show().dismiss()
             finish()
         }
-        builder.show()
+        builder.show().setCanceledOnTouchOutside(false)
         super.onCreate(savedInstanceState)
     }
 }

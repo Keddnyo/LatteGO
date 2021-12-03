@@ -140,9 +140,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
         builder.setNegativeButton(android.R.string.cancel) { _, _ ->
-            // None
+            builder.show().dismiss()
         }
-        builder.show()
+        builder.show().setCanceledOnTouchOutside(false)
     }
 
     private fun toast(text: String) {
