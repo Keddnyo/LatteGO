@@ -22,4 +22,8 @@ class Recovery : AppCompatActivity() {
         builder.show().setCanceledOnTouchOutside(false)
         super.onCreate(savedInstanceState)
     }
+
+    override fun onBackPressed() {
+        //TODO: None
+    }
 }
