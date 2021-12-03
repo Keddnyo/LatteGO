@@ -25,6 +25,6 @@ class Windows : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        //TODO: None
+        finish()
     }
 }

@@ -24,6 +24,6 @@ class Recovery : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        //TODO: None
+        finish()
     }
 }
