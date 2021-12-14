@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val device = getString(R.string.only_for, Device().model)
+        val device = getString(R.string.specific_device, Device().model)
         if (!Device().check()) {
             Toast.makeText(this, device, Toast.LENGTH_SHORT).show()
             finish()
@@ -39,28 +39,10 @@ class MainActivity : AppCompatActivity() {
         listView.adapter = adapter
 
         listView.onItemClickListener =
-            OnItemClickListener { _, _, position, _ ->
-                when (adapter.getItem(position)) {
-                    bootList[0] -> {
-                        dialog(bootList[0].toString(), 0) // DNX
-                    }
-                    bootList[1] -> {
-                        dialog(bootList[1].toString(), 1) // Fastboot
-                    }
-                    bootList[2] -> {
-                        dialog(bootList[2].toString(), 2) // Recovery
-                    }
-                    bootList[3] -> {
-                        dialog(bootList[3].toString(), 3) // Reboot
-                    }
-                    bootList[4] -> {
-                        dialog(bootList[4].toString(), 4) // Safe mode
-                    }
-                    bootList[5] -> {
-                        dialog(bootList[5].toString(), 5) // Sleep
-                    }
-                    bootList[6] -> {
-                        dialog(bootList[6].toString(), 6) // Power off
+            OnItemClickListener { _, _, pos, _ ->
+                when (adapter.getItem(pos)) {
+                    bootList[pos] -> {
+                        dialog(bootList[pos].toString(), pos)
                     }
                 }
             }

@@ -7,7 +7,7 @@ import java.io.InputStream
 import java.io.OutputStream
 
 class Boot {
-    private val file = "bootx64.efi"
+    private val fileName = "bootx64.efi"
     private val efiPath = "/mnt/cifs"
 
     fun shutdown() {
@@ -42,7 +42,7 @@ class Boot {
         Runtime.getRuntime().exec(arrayOf("su", "-c", "mount -t vfat /dev/block/by-name/*loader $efiPath")).waitFor()
     }
     private fun copyEFI() {
-        Runtime.getRuntime().exec(arrayOf("su", "-c", "mv /sdcard/.$file $efiPath/EFI/BOOT/$file"))
+        Runtime.getRuntime().exec(arrayOf("su", "-c", "mv /sdcard/.$fileName $efiPath/EFI/BOOT/$fileName"))
     }
 
     @SuppressLint("SdCardPath")
