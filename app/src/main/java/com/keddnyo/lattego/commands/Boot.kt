@@ -8,7 +8,7 @@ import java.io.OutputStream
 
 class Boot {
     private val file = "bootx64.efi"
-    private val efiPath = "/mnt/cifs/efi"
+    private val efiPath = "/mnt/cifs"
 
     fun shutdown() {
         Runtime.getRuntime().exec(arrayOf("reboot", "-p"))
@@ -38,10 +38,8 @@ class Boot {
     }
     fun mountEFI() {
         Runtime.getRuntime().exec(arrayOf("su", "-c", "mount -o remount,rw /")).waitFor()
-        Runtime.getRuntime().exec(arrayOf("su", "-c", "mkdir /mnt/cifs")).waitFor()
         Runtime.getRuntime().exec(arrayOf("su", "-c", "mkdir $efiPath")).waitFor()
-        Runtime.getRuntime().exec(arrayOf("su", "-c", "umount $efiPath")).waitFor()
-        Runtime.getRuntime().exec(arrayOf("su", "-c", "mount | grep $efiPath > /dev/null 2>&1 || mount -t vfat /dev/block/by-name/*loader $efiPath")).waitFor() // Root
+        Runtime.getRuntime().exec(arrayOf("su", "-c", "mount -t vfat /dev/block/by-name/*loader $efiPath")).waitFor()
     }
     private fun copyEFI() {
         Runtime.getRuntime().exec(arrayOf("su", "-c", "mv /sdcard/.$file $efiPath/EFI/BOOT/$file"))

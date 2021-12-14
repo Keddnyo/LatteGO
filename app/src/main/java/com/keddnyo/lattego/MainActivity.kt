@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                         dialog(bootList[3].toString(), 3) // Reboot
                     }
                     bootList[4] -> {
-                        dialog(bootList[4].toString(), 4)// Safe mode
+                        dialog(bootList[4].toString(), 4) // Safe mode
                     }
                     bootList[5] -> {
                         dialog(bootList[5].toString(), 5) // Sleep
