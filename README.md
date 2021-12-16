@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/Keddnyo/LatteGO/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" align="right"/>
 
 # LatteGO
-MiPad 2 tablet PC advanced boot options
+Xiaomi MiPad 2 tablet PC advanced boot options
 ## Features
 * Hidden target device checker
 * Simple GUI
