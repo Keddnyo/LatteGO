@@ -5,7 +5,7 @@ MiPad 2 tablet PC advanced boot options
 ## Features
 * Hidden target device checker
 * Simple GUI
-* Reboot options
+* Boot options
   * Shutdown
   * Recovery
   * Fastboot
