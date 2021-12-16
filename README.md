@@ -14,7 +14,7 @@ MiPad 2 tablet PC advanced boot options
   * Sleep
   * Safe mode
   * Windows *(Only via shortcut)*
-* Reboot confirmation dialog
+* Choice confirmation dialog
 ## Hidden features
   * Long click on "**DNX**" make an attempt to fix EFI partition
   * Long click on "**Recovery**" enables Recovery shortcut
