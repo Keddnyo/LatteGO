@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/Keddnyo/LatteGO/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" align="right"/>
 
 # LatteGO
- MI Pad 2 tablet advanced boot options
+MiPad 2 tablet PC advanced boot options
 ## Features
 * Hidden target device checker
 * Simple GUI
