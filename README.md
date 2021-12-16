@@ -16,7 +16,7 @@ Xiaomi MiPad 2 tablet PC advanced boot options
   * Windows *(Only via shortcut)*
 * Choice confirmation dialog
 ## Hidden features
-  * Long click on "**DNX**" make an attempt to fix EFI partition
+  * Long click on "**DNX**" fixes EFI partition
   * Long click on "**Recovery**" enables Recovery shortcut
   * Long click on "**Reboot**" enables Windows shortcut
   * Long click on "**Safe mode**" disables Windows shortcut
