@@ -2,6 +2,8 @@
 
 # LatteGO
 Xiaomi MiPad 2 tablet PC advanced boot options
+
+**Show [Russian](https://github.com/Keddnyo/LatteGO/blob/main/README.md) README**
 ## Features
 * Hidden target device checker
 * Simple GUI
